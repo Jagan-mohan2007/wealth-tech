@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvestWise AI - Invest Smart, Not Viral</title>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-chart-line"></i> InvestWise AI
+            </div>
+            
+            <button id="mobile-menu-toggle" class="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#goal-planner">Goal Planner</a></li>
+                <li><a href="#gp-whatif">What-If</a></li>
+                <li><a href="#gp-copilot">Copilot</a></li>
+                <li><a href="#quiz">Risk Quiz</a></li>
+                <li><a href="#analyzer">Analyzer</a></li>
+                <li><a href="#learn">Learn</a></li>
+                <li><a href="#hype-check">Hype Check</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button id="demo-mode-btn" class="btn-demo">
+                    <i class="fas fa-play"></i> Demo Mode
+                </button>
+                <button class="btn-plan-goal" onclick="document.getElementById('goal-planner').scrollIntoView({behavior:'smooth'})">
+                    <i class="fas fa-bullseye"></i> Plan My Goal
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Section 1: Hero -->
+        <section id="hero" data-section="hero" class="hero-section">
+            <div class="hero-content">
+                <h1>Invest Smart, Not Viral.</h1>
+                <p>Don't let social media hype drive your investment decisions. InvestWise AI helps first-time investors and students understand risks, assess their profile, and make informed choices.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary" onclick="document.getElementById('goal-planner').scrollIntoView({behavior: 'smooth'})"><i class="fas fa-bullseye"></i> Plan My Goal</button>
+                    <button class="btn-secondary" onclick="document.getElementById('profile').scrollIntoView({behavior: 'smooth'})">Risk Profile</button>
+                    <button class="btn-secondary" id="hero-demo-btn"><i class="fas fa-play"></i> Try Demo</button>
+                </div>
+                <div class="stats-bar">
+                    <div class="stat"><span>10K+</span> Students Helped</div>
+                    <div class="stat"><span>95%</span> Risk Accuracy</div>
+                    <div class="stat"><span>50+</span> Stocks Analyzed</div>
+                </div>
+            </div>
+            <div class="hero-background">
+                <!-- Decorative animated gradient background elements -->
+                <div class="blob blob-1"></div>
+                <div class="blob blob-2"></div>
+            </div>
+        </section>
+
+        <!-- Section 2: Investor Profile Form -->
+        <section id="profile" data-section="profile" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Build Your Investor Profile</h2>
+                    <p>Tell us a bit about yourself so we can personalize your investment journey.</p>
+                </div>
+                
+                <div class="card form-card">
+                    <form id="profile-form">
+                        <div class="form-group">
+                            <label for="age">Age</label>
+                            <input type="number" id="age" name="age" min="16" max="80" required placeholder="e.g. 22">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="occupation">Occupation</label>
+                            <select id="occupation" name="occupation" required>
+                                <option value="" disabled selected>Select your occupation</option>
+                                <option value="student">Student</option>
+                                <option value="professional">Working Professional</option>
+                                <option value="freelancer">Freelancer</option>
+                                <option value="business">Business Owner</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="monthly-income">Monthly Income</label>
+                            <div class="input-prefix">
+                                <span>₹</span>
+                                <input type="number" id="monthly-income" name="monthly-income" required placeholder="e.g. 50000">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="monthly-savings">Monthly Savings</label>
+                            <div class="input-prefix">
+                                <span>₹</span>
+                                <input type="number" id="monthly-savings" name="monthly-savings" required placeholder="e.g. 10000">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="financial-goal">Primary Financial Goal</label>
+                            <select id="financial-goal" name="financial-goal" required>
+                                <option value="" disabled selected>Select a goal</option>
+                                <option value="emergency">Emergency Fund</option>
+                                <option value="wealth">Wealth Building</option>
+                                <option value="retirement">Retirement</option>
+                                <option value="education">Education</option>
+                                <option value="home">Home Purchase</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="investment-duration">Investment Duration</label>
+                            <select id="investment-duration" name="investment-duration" required>
+                                <option value="" disabled selected>Select duration</option>
+                                <option value="<1">Less than 1 year</option>
+                                <option value="1-3">1-3 years</option>
+                                <option value="3-5">3-5 years</option>
+                                <option value="5-10">5-10 years</option>
+                                <option value="10+">10+ years</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group full-width">
+                            <label>Risk Tolerance</label>
+                            <div class="radio-group">
+                                <label class="radio-card">
+                                    <input type="radio" name="risk-tolerance" value="low" required>
+                                    <div class="card-content">
+                                        <h4>Low</h4>
+                                        <p>I prefer capital preservation over high returns. I cannot tolerate losing my principal amount.</p>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="risk-tolerance" value="medium">
+                                    <div class="card-content">
+                                        <h4>Medium</h4>
+                                        <p>I am willing to accept some fluctuations in value for moderate growth potential.</p>
+                                    </div>
+                                </label>
+                                <label class="radio-card">
+                                    <input type="radio" name="risk-tolerance" value="high">
+                                    <div class="card-content">
+                                        <h4>High</h4>
+                                        <p>I am comfortable with significant volatility and potential short-term losses for long-term growth.</p>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary w-100">Analyze My Profile</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div id="profile-results" class="hidden mt-4">
+                    <!-- Profile summary card will be injected here via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Risk Assessment Quiz -->
+        <section id="quiz" data-section="quiz" class="section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Risk Assessment Quiz</h2>
+                    <p>Answer these questions to discover your true investor type and risk capacity.</p>
+                </div>
+                
+                <div class="quiz-wrapper card">
+                    <div class="progress-bar" id="quiz-progress">
+                        <div class="progress-fill" style="width: 10%;"></div>
+                    </div>
+                    <div id="question-counter" class="text-muted text-sm mb-4">Question 1 of 10</div>
+                    
+                    <div id="quiz-container">
+                        <!-- Questions injected via JS, example structure below -->
+                        <div class="quiz-question active">
+                            <h3>If your investment portfolio dropped 20% in one month, what would you do?</h3>
+                            <div class="quiz-options">
+                                <label class="quiz-option">
+                                    <input type="radio" name="q1" value="a">
+                                    <span>Sell everything immediately to prevent further losses.</span>
+                                </label>
+                                <label class="quiz-option">
+                                    <input type="radio" name="q1" value="b">
+                                    <span>Wait and see, maybe sell some if it drops further.</span>
+                                </label>
+                                <label class="quiz-option">
+                                    <input type="radio" name="q1" value="c">
+                                    <span>Do nothing, I invest for the long term.</span>
+                                </label>
+                                <label class="quiz-option">
+                                    <input type="radio" name="q1" value="d">
+                                    <span>Buy more! Stocks are on sale.</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-actions mt-4">
+                        <button id="prev-btn" class="btn-secondary" disabled>Previous</button>
+                        <button id="next-btn" class="btn-primary">Next</button>
+                        <button id="submit-quiz-btn" class="btn-primary hidden">See Results</button>
+                    </div>
+                    
+                    <div id="quiz-results" class="hidden text-center">
+                        <div class="result-badge">Moderate Investor</div>
+                        <div class="score-display">Score: <span>65</span>/100</div>
+                        <p class="result-description mt-3">You have a balanced approach to investing. You understand that some risk is necessary for growth but prefer to avoid extreme volatility.</p>
+                        <button class="btn-primary mt-4" onclick="document.getElementById('recommendations').scrollIntoView({behavior: 'smooth'})">View Recommendations</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Stock Risk Analyzer -->
+        <section id="analyzer" data-section="analyzer" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Stock & Crypto Risk Analyzer</h2>
+                    <p>Check the fundamental risk level of an asset before you invest.</p>
+                </div>
+                
+                <div class="search-container">
+                    <div class="search-bar">
+                        <input type="text" id="stock-search" placeholder="Enter stock name, company, or crypto...">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    
+                    <div class="quick-picks mt-3">
+                        <span class="text-sm text-muted">Quick Picks:</span>
+                        <button class="quick-pick">Reliance</button>
+                        <button class="quick-pick">TCS</button>
+                        <button class="quick-pick">Infosys</button>
+                        <button class="quick-pick">Bitcoin</button>
+                        <button class="quick-pick">Ethereum</button>
+                        <button class="quick-pick">HDFC Bank</button>
+                        <button class="quick-pick">Tesla</button>
+                        <button class="quick-pick">Apple</button>
+                    </div>
+                </div>
+                
+                <div id="analyzer-results" class="hidden mt-5">
+                    <div class="analyzer-grid">
+                        <div class="card risk-score-card text-center">
+                            <h3>Risk Score</h3>
+                            <div class="gauge-container">
+                                <canvas id="risk-gauge"></canvas>
+                                <div id="risk-score-value" class="gauge-value">75</div>
+                            </div>
+                            <p class="text-sm mt-2">Scale: 1 (Low) - 100 (High Risk)</p>
+                        </div>
+                        
+                        <div class="card stats-grid">
+                            <div class="stat-item">
+                                <span class="stat-label">Volatility Level</span>
+                                <div id="volatility-level" class="badge badge-warning">High</div>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Beginner Friendly</span>
+                                <div id="beginner-friendly" class="badge badge-danger">No</div>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">Long-Term Suitability</span>
+                                <div id="long-term" class="rating">Moderate ★★★☆☆</div>
+                            </div>
+                        </div>
+                        
+                        <div class="card analysis-card full-width">
+                            <h3>Risk Explanation</h3>
+                            <p id="risk-explanation">This asset shows high price volatility typical of its sector. While it offers high growth potential, it is susceptible to sharp drawdowns.</p>
+                            
+                            <h4 class="mt-4">Key Risk Factors</h4>
+                            <ul id="risk-factors" class="factor-list">
+                                <li><i class="fas fa-exclamation-circle text-danger"></i> Regulatory uncertainty in multiple jurisdictions.</li>
+                                <li><i class="fas fa-exclamation-circle text-warning"></i> High correlation with macroeconomic trends.</li>
+                                <li><i class="fas fa-check-circle text-success"></i> Strong market liquidity.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: AI Recommendations -->
+        <section id="recommendations" data-section="recommendations" class="section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>AI-Powered Investment Recommendations</h2>
+                    <p>Based on your profile and risk tolerance, here is your suggested portfolio allocation.</p>
+                </div>
+                
+                <div id="rec-cards" class="rec-grid">
+                    <!-- Conservative Card -->
+                    <div class="card rec-card" data-type="conservative">
+                        <div class="rec-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3>Conservative</h3>
+                        <ul class="allocation-list">
+                            <li><span class="dot dot-safe"></span> 60% Savings/FDs</li>
+                            <li><span class="dot dot-gold"></span> 20% Gold/Bonds</li>
+                            <li><span class="dot dot-equity"></span> 20% Index SIP</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Moderate Card -->
+                    <div class="card rec-card active" data-type="moderate">
+                        <div class="rec-icon"><i class="fas fa-balance-scale"></i></div>
+                        <h3>Moderate</h3>
+                        <ul class="allocation-list">
+                            <li><span class="dot dot-equity"></span> 50% Equity SIP</li>
+                            <li><span class="dot dot-gold"></span> 30% Gold/Debt</li>
+                            <li><span class="dot dot-stocks"></span> 20% Direct Stocks</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Aggressive Card -->
+                    <div class="card rec-card" data-type="aggressive">
+                        <div class="rec-icon"><i class="fas fa-rocket"></i></div>
+                        <h3>Aggressive</h3>
+                        <ul class="allocation-list">
+                            <li><span class="dot dot-stocks"></span> 40% Direct Stocks</li>
+                            <li><span class="dot dot-equity"></span> 40% Equity SIP</li>
+                            <li><span class="dot dot-crypto"></span> 20% High Risk/Crypto</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="allocation-details mt-5">
+                    <div class="card chart-card">
+                        <h3>Your Target Allocation</h3>
+                        <div id="allocation-chart-container">
+                            <canvas id="allocation-chart"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card tips-card">
+                        <h3>Personalized Strategy Tips</h3>
+                        <ul id="rec-tips" class="tips-list">
+                            <li><i class="fas fa-lightbulb text-accent"></i> Start a monthly SIP to benefit from Rupee Cost Averaging.</li>
+                            <li><i class="fas fa-lightbulb text-accent"></i> Maintain an emergency fund of at least 6 months' expenses.</li>
+                            <li><i class="fas fa-lightbulb text-accent"></i> Avoid investing based on social media tips.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 6: Financial Literacy -->
+        <section id="learn" data-section="learn" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Financial Literacy Hub</h2>
+                    <p>Master the basics before risking your hard-earned money.</p>
+                </div>
+                
+                <div class="learn-grid">
+                    <div class="card learn-card">
+                        <div class="learn-header">
+                            <i class="fas fa-piggy-bank learn-icon"></i>
+                            <h3>What is SIP?</h3>
+                        </div>
+                        <p>Systematic Investment Plan allows you to invest small amounts regularly.</p>
+                        <div class="learn-more-content hidden">
+                            <p>SIP is a method of investing a fixed sum regularly (monthly or quarterly) in a mutual fund scheme. It instills financial discipline and builds wealth over time.</p>
+                            <p>By investing regularly regardless of market conditions, you benefit from Rupee Cost Averaging, buying more units when prices are low and fewer when prices are high.</p>
+                        </div>
+                        <button class="btn-toggle text-primary mt-2">Learn More <i class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <div class="card learn-card">
+                        <div class="learn-header">
+                            <i class="fas fa-chart-bar learn-icon"></i>
+                            <h3>What is an ETF?</h3>
+                        </div>
+                        <p>Exchange Traded Funds track indexes and are traded like stocks.</p>
+                        <div class="learn-more-content hidden">
+                            <p>An ETF is a type of pooled investment security that operates much like a mutual fund. Typically, ETFs will track a particular index, sector, commodity, or other assets.</p>
+                            <p>Unlike mutual funds, ETFs can be purchased or sold on a stock exchange the same way that a regular stock can, offering greater liquidity and often lower fees.</p>
+                        </div>
+                        <button class="btn-toggle text-primary mt-2">Learn More <i class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <div class="card learn-card">
+                        <div class="learn-header">
+                            <i class="fas fa-layer-group learn-icon"></i>
+                            <h3>What is a Mutual Fund?</h3>
+                        </div>
+                        <p>A pool of money managed by professionals to buy diversified assets.</p>
+                        <div class="learn-more-content hidden">
+                            <p>Mutual funds collect money from investors and invest the capital in stocks, bonds, or other securities. They are managed by professional fund managers.</p>
+                            <p>They offer built-in diversification and professional management, making them an excellent choice for beginners who don't have the time or expertise to pick individual stocks.</p>
+                        </div>
+                        <button class="btn-toggle text-primary mt-2">Learn More <i class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <div class="card learn-card">
+                        <div class="learn-header">
+                            <i class="fas fa-exclamation-triangle learn-icon"></i>
+                            <h3>What is Stock Market Risk?</h3>
+                        </div>
+                        <p>Understanding the potential for losses in your investments.</p>
+                        <div class="learn-more-content hidden">
+                            <p>Stock market risk, or systematic risk, is the probability of loss inherent to the entire market or market segment. It cannot be completely avoided.</p>
+                            <p>Factors include economic recessions, political turmoil, or interest rate changes. While you can't eliminate market risk, you can manage it through diversification and long-term holding strategies.</p>
+                        </div>
+                        <button class="btn-toggle text-primary mt-2">Learn More <i class="fas fa-chevron-down"></i></button>
+                    </div>
+
+                    <div class="card learn-card">
+                        <div class="learn-header">
+                            <i class="fas fa-puzzle-piece learn-icon"></i>
+                            <h3>What is Diversification?</h3>
+                        </div>
+                        <p>Spreading your investments to reduce exposure to any one risk.</p>
+                        <div class="learn-more-content hidden">
+                            <p>Diversification is the strategy of mixing a wide variety of investments within a portfolio. The rationale is that a portfolio constructed of different kinds of assets will, on average, yield higher long-term returns.</p>
+                            <p>"Don't put all your eggs in one basket." By spreading investments across different asset classes (stocks, bonds, real estate, gold), you protect your portfolio against significant losses.</p>
+                        </div>
+                        <button class="btn-toggle text-primary mt-2">Learn More <i class="fas fa-chevron-down"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 7: Visualization Dashboard -->
+        <section id="dashboard" data-section="dashboard" class="section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Your Investment Dashboard</h2>
+                    <p>A holistic view of your financial profile and projected growth.</p>
+                </div>
+                
+                <!-- Placeholder when no data -->
+                <div id="dashboard-placeholder" class="text-center py-5">
+                    <i class="fas fa-chart-pie fa-4x text-muted mb-3"></i>
+                    <h3>No Data Available</h3>
+                    <p class="text-muted">Complete your profile and quiz to see your personalized dashboard.</p>
+                </div>
+
+                <div id="dashboard-content" class="dashboard-grid hidden">
+                    <div id="dash-profile" class="card dash-card">
+                        <h3>Profile Summary</h3>
+                        <div class="summary-stats mt-3">
+                            <div class="d-stat">
+                                <span class="d-label">Investor Type</span>
+                                <strong class="d-value text-primary">Moderate</strong>
+                            </div>
+                            <div class="d-stat">
+                                <span class="d-label">Monthly Savings</span>
+                                <strong class="d-value">₹15,000</strong>
+                            </div>
+                            <div class="d-stat">
+                                <span class="d-label">Time Horizon</span>
+                                <strong class="d-value">5-10 Years</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card dash-card text-center">
+                        <h3>Risk Meter</h3>
+                        <div class="meter-container mt-3">
+                            <canvas id="risk-meter-canvas"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="card dash-card">
+                        <h3>Asset Allocation</h3>
+                        <div class="pie-container mt-3">
+                            <canvas id="dash-allocation-chart"></canvas>
+                        </div>
+                    </div>
+
+                    <div id="dash-timeline" class="card dash-card">
+                        <h3>Projected Growth (10 Years)</h3>
+                        <div class="timeline-stats mt-3">
+                            <div class="growth-stat">
+                                <span>Total Invested:</span>
+                                <strong>₹18,00,000</strong>
+                            </div>
+                            <div class="growth-stat text-success">
+                                <span>Est. Returns (12%):</span>
+                                <strong>₹16,84,000</strong>
+                            </div>
+                            <div class="growth-stat total">
+                                <span>Expected Value:</span>
+                                <strong>₹34,84,000</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-4">
+                    <button id="generate-report-btn" class="btn-primary">Generate Detailed Report</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 8: Social Media Hype Warning -->
+        <section id="hype-check" data-section="hype-check" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2><i class="fas fa-exclamation-triangle text-warning"></i> Social Media Hype Checker</h2>
+                    <p>Did you see it on TikTok or Instagram? Let's check if it's reality or just hype.</p>
+                </div>
+                
+                <div class="hype-search-area text-center max-w-lg mx-auto">
+                    <div class="input-group">
+                        <input type="text" id="hype-input" class="form-control" placeholder="Enter a trending stock, crypto, or investment buzz...">
+                        <button id="hype-check-btn" class="btn-primary">Check Hype Level</button>
+                    </div>
+                    
+                    <div class="quick-trends mt-3">
+                        <button class="trend-btn">Dogecoin 🚀</button>
+                        <button class="trend-btn">GameStop 📈</button>
+                        <button class="trend-btn">NFT Art 🎨</button>
+                        <button class="trend-btn">AI Stocks 🤖</button>
+                        <button class="trend-btn">Penny Stocks 💰</button>
+                    </div>
+                </div>
+                
+                <div id="hype-results" class="hidden mt-5">
+                    <div class="card hype-card text-center">
+                        <h3>Hype Analysis Result</h3>
+                        
+                        <div class="hype-meter mt-4">
+                            <div class="hype-fill" style="width: 85%;"></div>
+                        </div>
+                        <div class="hype-score-display mt-2">
+                            Hype Score: <span id="hype-score" class="text-danger font-bold text-xl">85/100</span> (Extreme Hype)
+                        </div>
+                        
+                        <div id="hype-warnings" class="warnings-container mt-4">
+                            <!-- Dynamically generated warning badges go here -->
+                            <div class="alert alert-danger"><i class="fas fa-radiation"></i> High FOMO Indicator Detected</div>
+                            <div class="alert alert-warning"><i class="fas fa-chart-area"></i> Price disconnected from fundamentals</div>
+                        </div>
+                        
+                        <div class="recommendation-box mt-4">
+                            <h4>InvestWise AI Recommendation</h4>
+                            <p id="hype-recommendation">Exercise extreme caution. This asset is currently driven by social media sentiment rather than underlying value. High risk of a sudden price crash if the hype fades. Not suitable for beginners.</p>
+                        </div>
+                        
+                        <div class="disclaimer-box text-sm text-muted mt-4 p-3 bg-light rounded">
+                            <strong>Disclaimer:</strong> Sentiment analysis is based on social media trends and volume. It is not financial advice.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             GOAL PLANNER MODULE
+             ============================================================ -->
+
+        <!-- Section: Goal Planner Form -->
+        <section id="goal-planner" class="section gp-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="gp-badge"><i class="fas fa-bullseye"></i> Goal Planner</div>
+                    <h2>Plan Today. Reach Tomorrow.</h2>
+                    <p>Turn your financial goals into an actionable investment plan with SIP, lumpsum, step-up, inflation and scenario analysis.</p>
+                </div>
+
+                <div class="gp-form-card card">
+                    <!-- Goal Information -->
+                    <div class="gp-form-section">
+                        <h3 class="gp-form-title"><span class="gp-step-badge">1</span> Goal Information</h3>
+                        <div class="gp-form-grid">
+                            <div class="form-group">
+                                <label for="gp-goal-name">Goal Name</label>
+                                <select id="gp-goal-name">
+                                    <option value="Car">Car</option>
+                                    <option value="House">House</option>
+                                    <option value="Education">Education</option>
+                                    <option value="Retirement" selected>Retirement</option>
+                                    <option value="Emergency Fund">Emergency Fund</option>
+                                    <option value="Custom Goal">Custom Goal</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="gp-goal-amount">Current Goal Amount (₹)</label>
+                                <div class="input-prefix"><span>₹</span><input type="number" id="gp-goal-amount" placeholder="e.g. 5000000" min="1"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="gp-duration">Investment Duration (Years)</label>
+                                <input type="number" id="gp-duration" placeholder="e.g. 10" min="1" max="40">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Current Financial Position -->
+                    <div class="gp-form-section">
+                        <h3 class="gp-form-title"><span class="gp-step-badge">2</span> Current Financial Position</h3>
+                        <div class="gp-form-grid">
+                            <div class="form-group">
+                                <label for="gp-lumpsum">Current Lumpsum / Existing Investment (₹)</label>
+                                <div class="input-prefix"><span>₹</span><input type="number" id="gp-lumpsum" placeholder="e.g. 500000" min="0"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="gp-sip">Monthly SIP Amount (₹)</label>
+                                <div class="input-prefix"><span>₹</span><input type="number" id="gp-sip" placeholder="e.g. 20000" min="0"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="gp-stepup">Annual SIP Step-Up (%)</label>
+                                <div class="input-prefix"><span>%</span><input type="number" id="gp-stepup" placeholder="e.g. 10" min="0" max="50"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Assumptions -->
+                    <div class="gp-form-section">
+                        <h3 class="gp-form-title"><span class="gp-step-badge">3</span> Assumptions</h3>
+                        <div class="gp-form-grid">
+                            <div class="form-group">
+                                <label for="gp-return">Expected Annual Return (%)</label>
+                                <div class="input-prefix"><span>%</span><input type="number" id="gp-return" placeholder="e.g. 12" min="0" max="50"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="gp-inflation">Expected Inflation (%)</label>
+                                <div class="input-prefix"><span>%</span><input type="number" id="gp-inflation" placeholder="e.g. 6" min="0" max="30"></div>
+                            </div>
+                        </div>
+                        <div id="gp-return-warning" class="gp-warning hidden">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Higher assumed returns can significantly affect projections. Actual returns may vary.
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="gp-form-actions">
+                        <button id="gp-calc-btn" class="btn-primary gp-calc-btn">
+                            <i class="fas fa-chart-line"></i> Calculate My Plan
+                        </button>
+                        <button id="gp-demo-btn" class="btn-secondary">
+                            <i class="fas fa-play"></i> Try Demo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Goal Planner Dashboard -->
+        <section id="gp-dashboard" class="section gp-section bg-light hidden">
+            <div class="container">
+                <!-- Goal Name Banner -->
+                <div class="gp-goal-banner">
+                    <div class="gp-goal-banner-info">
+                        <h2 id="gp-goal-title">Your Retirement Plan</h2>
+                        <p id="gp-goal-subtitle">Here's your complete financial projection</p>
+                    </div>
+                    <div id="gp-status-badge" class="gp-status-badge gp-on-track">🟢 ON TRACK</div>
+                </div>
+
+                <!-- Summary Cards -->
+                <div class="gp-summary-grid">
+                    <div class="card gp-sum-card">
+                        <div class="gp-sum-icon"><i class="fas fa-chart-line"></i></div>
+                        <div class="gp-sum-label">Projected Corpus</div>
+                        <div class="gp-sum-value" id="gp-corpus">₹0</div>
+                        <div class="gp-sum-sub">Total wealth at end of duration</div>
+                    </div>
+                    <div class="card gp-sum-card gp-sum-card--goal">
+                        <div class="gp-sum-icon"><i class="fas fa-bullseye"></i></div>
+                        <div class="gp-sum-label">Inflation-Adjusted Goal</div>
+                        <div class="gp-sum-value" id="gp-adj-goal">₹0</div>
+                        <div class="gp-sum-sub">Amount needed in future value</div>
+                    </div>
+                    <div class="card gp-sum-card">
+                        <div class="gp-sum-icon"><i class="fas fa-wallet"></i></div>
+                        <div class="gp-sum-label">Total Invested</div>
+                        <div class="gp-sum-value" id="gp-total-invested">₹0</div>
+                        <div class="gp-sum-sub">Principal contribution</div>
+                    </div>
+                    <div class="card gp-sum-card gp-sum-card--growth">
+                        <div class="gp-sum-icon"><i class="fas fa-seedling"></i></div>
+                        <div class="gp-sum-label">Estimated Growth</div>
+                        <div class="gp-sum-value" id="gp-est-growth">₹0</div>
+                        <div class="gp-sum-sub">Returns on your investment</div>
+                    </div>
+                </div>
+
+                <!-- Progress Ring + Inflation -->
+                <div class="gp-progress-row">
+                    <div class="card gp-progress-card">
+                        <h3>Goal Progress</h3>
+                        <div class="gp-ring-wrap">
+                            <svg class="gp-ring" viewBox="0 0 120 120">
+                                <circle class="gp-ring-bg" cx="60" cy="60" r="52" fill="none" stroke-width="10"/>
+                                <circle class="gp-ring-fill" id="gp-ring-fill" cx="60" cy="60" r="52" fill="none" stroke-width="10"
+                                    stroke-dasharray="326.7" stroke-dashoffset="326.7" stroke-linecap="round"/>
+                            </svg>
+                            <div class="gp-ring-center">
+                                <div id="gp-progress-pct" class="gp-ring-pct">0%</div>
+                                <div class="gp-ring-label">of goal</div>
+                            </div>
+                        </div>
+                        <div class="gp-progress-stats">
+                            <div class="gp-pstat"><span id="gp-corpus-lbl">₹0</span><small>Projected</small></div>
+                            <div class="gp-pstat gp-pstat--goal"><span id="gp-goal-lbl">₹0</span><small>Required</small></div>
+                        </div>
+                    </div>
+
+                    <div class="card gp-inflation-card">
+                        <h3><i class="fas fa-fire-alt" style="color:#ff6b35"></i> Inflation Impact</h3>
+                        <div class="gp-inflation-row">
+                            <div class="gp-inf-item">
+                                <div class="gp-inf-label">Your Goal Today</div>
+                                <div class="gp-inf-value" id="gp-inf-today">₹0</div>
+                            </div>
+                            <div class="gp-inf-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="gp-inf-item">
+                                <div class="gp-inf-label">Inflation-Adjusted Goal</div>
+                                <div class="gp-inf-value gp-inf-value--future" id="gp-inf-future">₹0</div>
+                            </div>
+                        </div>
+                        <p class="gp-inf-note">Due to <span id="gp-inf-rate">6</span>% annual inflation, you may need a significantly larger amount to maintain equivalent purchasing power in <span id="gp-inf-yrs">10</span> years.</p>
+
+                        <div class="gp-breakdown">
+                            <h4>Investment Breakdown</h4>
+                            <div class="gp-bk-row"><span>Monthly SIP</span><strong id="gp-bk-sip">₹0</strong></div>
+                            <div class="gp-bk-row"><span>Annual Step-Up</span><strong id="gp-bk-stepup">0%</strong></div>
+                            <div class="gp-bk-row"><span>Current Lumpsum</span><strong id="gp-bk-lumpsum">₹0</strong></div>
+                            <div class="gp-bk-row"><span>Expected Return</span><strong id="gp-bk-return">0%</strong></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Growth Chart -->
+                <div class="card gp-chart-card">
+                    <div class="gp-chart-header">
+                        <h3>Projected Growth Over Time</h3>
+                        <div class="gp-chart-legend">
+                            <span class="gp-legend-item"><span class="gp-legend-dot" style="background:#00d09c"></span>Corpus</span>
+                            <span class="gp-legend-item"><span class="gp-legend-dot" style="background:#00b4d8"></span>Invested</span>
+                            <span class="gp-legend-item"><span class="gp-legend-dot" style="background:#ff6b35"></span>Inflation Goal</span>
+                        </div>
+                    </div>
+                    <canvas id="gp-growth-chart" height="120"></canvas>
+                </div>
+
+                <!-- Step-Up Comparison -->
+                <div class="card gp-stepup-card">
+                    <h3>Regular SIP vs Step-Up SIP Comparison</h3>
+                    <p class="text-muted">See how increasing your SIP annually dramatically improves your final corpus.</p>
+                    <div class="gp-stepup-grid" id="gp-stepup-grid">
+                        <!-- Injected by JS -->
+                    </div>
+                    <canvas id="gp-stepup-chart" height="80" class="mt-4"></canvas>
+                </div>
+
+                <!-- Shortfall Strategies (shown if shortfall) -->
+                <div id="gp-strategies" class="card gp-strategies-card hidden">
+                    <div class="gp-strategies-header">
+                        <i class="fas fa-lightbulb" style="color:var(--warning)"></i>
+                        <div>
+                            <h3>How Can I Reach My Goal?</h3>
+                            <p id="gp-shortfall-msg">You're ₹X short of your target. Here are possible ways to close the gap:</p>
+                        </div>
+                    </div>
+                    <div class="gp-strat-grid" id="gp-strat-grid">
+                        <!-- Injected by JS -->
+                    </div>
+                    <p class="gp-strat-disclaimer"><i class="fas fa-info-circle"></i> These are educational estimates based on your inputs, not guaranteed outcomes.</p>
+                </div>
+
+                <!-- Scenario Analysis -->
+                <div id="gp-scenarios" class="card gp-scenarios-card">
+                    <h3>Scenario Analysis</h3>
+                    <p class="text-muted">How does your corpus change with different expected returns?</p>
+                    <div class="gp-scenario-grid" id="gp-scenario-grid">
+                        <!-- Injected by JS -->
+                    </div>
+                    <canvas id="gp-scenario-chart" height="80" class="mt-4"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: What-If Simulator -->
+        <section id="gp-whatif" class="section gp-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="gp-badge"><i class="fas fa-magic"></i> What-If Simulator</div>
+                    <h2>What If...?</h2>
+                    <p>Simulate changes to your investment plan and see the impact instantly.</p>
+                </div>
+
+                <div id="gp-whatif-notice" class="gp-notice">
+                    <i class="fas fa-info-circle"></i> Please <a href="#goal-planner" onclick="document.getElementById('goal-planner').scrollIntoView({behavior:'smooth'})">calculate your plan</a> first to use the What-If Simulator.
+                </div>
+
+                <div id="gp-whatif-grid" class="gp-whatif-grid hidden">
+                    <div class="card gp-wi-card">
+                        <div class="gp-wi-icon"><i class="fas fa-arrow-up"></i></div>
+                        <h4>Increase Monthly SIP</h4>
+                        <p>What if I add more to my monthly SIP?</p>
+                        <div class="gp-wi-input">
+                            <label>Extra SIP Amount (₹/month)</label>
+                            <div class="input-prefix"><span>₹</span><input type="number" id="wi-sip-extra" value="5000" min="0"></div>
+                        </div>
+                        <div class="gp-wi-result">
+                            <div class="gp-wi-col">
+                                <small>Current Plan</small>
+                                <strong id="wi-sip-current">₹0</strong>
+                            </div>
+                            <div class="gp-wi-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="gp-wi-col">
+                                <small>New Corpus</small>
+                                <strong id="wi-sip-new">₹0</strong>
+                            </div>
+                        </div>
+                        <div class="gp-wi-delta" id="wi-sip-delta">+₹0</div>
+                    </div>
+
+                    <div class="card gp-wi-card">
+                        <div class="gp-wi-icon"><i class="fas fa-percentage"></i></div>
+                        <h4>Increase Annual Step-Up</h4>
+                        <p>What if I raise my annual SIP increase rate?</p>
+                        <div class="gp-wi-input">
+                            <label>New Step-Up Rate (%)</label>
+                            <div class="input-prefix"><span>%</span><input type="number" id="wi-stepup-new" value="15" min="0" max="50"></div>
+                        </div>
+                        <div class="gp-wi-result">
+                            <div class="gp-wi-col">
+                                <small>Current Plan</small>
+                                <strong id="wi-stepup-current">₹0</strong>
+                            </div>
+                            <div class="gp-wi-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="gp-wi-col">
+                                <small>New Corpus</small>
+                                <strong id="wi-stepup-new-val">₹0</strong>
+                            </div>
+                        </div>
+                        <div class="gp-wi-delta" id="wi-stepup-delta">+₹0</div>
+                    </div>
+
+                    <div class="card gp-wi-card">
+                        <div class="gp-wi-icon"><i class="fas fa-plus-circle"></i></div>
+                        <h4>Add Extra Lumpsum</h4>
+                        <p>What if I invest an additional amount today?</p>
+                        <div class="gp-wi-input">
+                            <label>Additional Lumpsum (₹)</label>
+                            <div class="input-prefix"><span>₹</span><input type="number" id="wi-lumpsum-extra" value="100000" min="0"></div>
+                        </div>
+                        <div class="gp-wi-result">
+                            <div class="gp-wi-col">
+                                <small>Current Plan</small>
+                                <strong id="wi-lumpsum-current">₹0</strong>
+                            </div>
+                            <div class="gp-wi-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="gp-wi-col">
+                                <small>New Corpus</small>
+                                <strong id="wi-lumpsum-new">₹0</strong>
+                            </div>
+                        </div>
+                        <div class="gp-wi-delta" id="wi-lumpsum-delta">+₹0</div>
+                    </div>
+
+                    <div class="card gp-wi-card">
+                        <div class="gp-wi-icon"><i class="fas fa-clock"></i></div>
+                        <h4>Invest for Longer</h4>
+                        <p>What if I extend my investment duration?</p>
+                        <div class="gp-wi-input">
+                            <label>Extra Years</label>
+                            <input type="number" id="wi-years-extra" value="2" min="1" max="20">
+                        </div>
+                        <div class="gp-wi-result">
+                            <div class="gp-wi-col">
+                                <small>Current Plan</small>
+                                <strong id="wi-years-current">₹0</strong>
+                            </div>
+                            <div class="gp-wi-arrow"><i class="fas fa-arrow-right"></i></div>
+                            <div class="gp-wi-col">
+                                <small>New Corpus</small>
+                                <strong id="wi-years-new">₹0</strong>
+                            </div>
+                        </div>
+                        <div class="gp-wi-delta" id="wi-years-delta">+₹0</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: AI Copilot -->
+        <section id="gp-copilot" class="section gp-section bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <div class="gp-badge"><i class="fas fa-robot"></i> AI Copilot</div>
+                    <h2>InvestWise Copilot</h2>
+                    <p>Your AI-powered financial mentor that explains your plan in simple language.</p>
+                </div>
+
+                <div class="card gp-copilot-card">
+                    <div class="gp-copilot-header">
+                        <div class="gp-copilot-avatar"><i class="fas fa-robot"></i></div>
+                        <div>
+                            <strong>InvestWise Copilot</strong>
+                            <span class="chatbot-status"><i class="fas fa-circle"></i> Ready to analyze</span>
+                        </div>
+                    </div>
+
+                    <div class="gp-copilot-analysis" id="gp-copilot-analysis">
+                        <div class="gp-copilot-placeholder">
+                            <i class="fas fa-chart-line fa-2x" style="color:var(--text-muted)"></i>
+                            <p>Calculate your plan above to get a personalized analysis from your AI Copilot.</p>
+                        </div>
+                    </div>
+
+                    <div class="gp-copilot-qs">
+                        <p class="gp-qs-label">Ask a question:</p>
+                        <div class="gp-qs-grid">
+                            <button class="gp-q-btn" data-q="faster">How can I reach my goal faster?</button>
+                            <button class="gp-q-btn" data-q="sip">What happens if I increase my SIP?</button>
+                            <button class="gp-q-btn" data-q="inflation">Why is inflation important?</button>
+                            <button class="gp-q-btn" data-q="years">What if I invest 2 more years?</button>
+                            <button class="gp-q-btn" data-q="explain">Explain my investment plan simply.</button>
+                            <button class="gp-q-btn" data-q="stepup">How does step-up SIP help?</button>
+                        </div>
+                    </div>
+
+                    <div class="gp-copilot-messages" id="gp-copilot-messages"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Financial Literacy (Goal Planner) -->
+        <section id="gp-literacy" class="section gp-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="gp-badge"><i class="fas fa-graduation-cap"></i> Learn</div>
+                    <h2>Investment Fundamentals</h2>
+                    <p>Master the key concepts behind your financial plan.</p>
+                </div>
+                <div class="gp-lit-grid">
+                    <div class="card gp-lit-card">
+                        <div class="gp-lit-icon" style="background:rgba(0,208,156,0.1)"><i class="fas fa-piggy-bank" style="color:#00d09c"></i></div>
+                        <h4>SIP</h4>
+                        <p>Systematic Investment Plan: invest a fixed amount monthly, benefiting from rupee cost averaging and compounding over time.</p>
+                    </div>
+                    <div class="card gp-lit-card">
+                        <div class="gp-lit-icon" style="background:rgba(0,180,216,0.1)"><i class="fas fa-coins" style="color:#00b4d8"></i></div>
+                        <h4>Lumpsum</h4>
+                        <p>Investing a larger amount at once. Best when you have idle funds. Works well alongside SIP for a hybrid strategy.</p>
+                    </div>
+                    <div class="card gp-lit-card">
+                        <div class="gp-lit-icon" style="background:rgba(255,107,53,0.1)"><i class="fas fa-stairs" style="color:#ff6b35"></i></div>
+                        <h4>Step-Up SIP</h4>
+                        <p>Increasing your SIP amount every year (e.g., 10% annually). Small increases compound dramatically over a decade.</p>
+                    </div>
+                    <div class="card gp-lit-card">
+                        <div class="gp-lit-icon" style="background:rgba(255,71,87,0.1)"><i class="fas fa-fire-alt" style="color:#ff4757"></i></div>
+                        <h4>Inflation</h4>
+                        <p>₹50L today may need ₹90L in 10 years to have the same purchasing power. Always plan for inflation-adjusted goals.</p>
+                    </div>
+                    <div class="card gp-lit-card">
+                        <div class="gp-lit-icon" style="background:rgba(255,215,0,0.1)"><i class="fas fa-snowball" style="color:#ffd700"></i></div>
+                        <h4>Compounding</h4>
+                        <p>Returns generating further returns. ₹5,000/month SIP at 12% for 30 years = ₹1.76 Cr from ₹18L invested. Time is key.</p>
+                    </div>
+                    <div class="card gp-lit-card">
+                        <div class="gp-lit-icon" style="background:rgba(148,0,211,0.1)"><i class="fas fa-layer-group" style="color:#9400d3"></i></div>
+                        <h4>Diversification</h4>
+                        <p>Don't put all eggs in one basket. Spread across asset classes — equity, debt, gold — to manage risk and smooth returns.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <i class="fas fa-chart-line"></i> InvestWise AI
+                </div>
+                <p>Invest Smart, Not Viral. Empowering the next generation of investors with AI-driven insights.</p>
+                <div class="social-links mt-3">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-discord"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <div class="link-column">
+                    <h4>Features</h4>
+                    <ul>
+                        <li><a href="#profile">Investor Profile</a></li>
+                        <li><a href="#quiz">Risk Quiz</a></li>
+                        <li><a href="#analyzer">Risk Analyzer</a></li>
+                        <li><a href="#hype-check">Hype Checker</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#learn">Financial Literacy</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Glossary</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="link-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Disclaimer: InvestWise AI is an educational tool. This is not financial advice. All investments carry risk.</p>
+            <p>&copy; 2026 InvestWise AI. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Utilities -->
+    <button id="scroll-top" class="scroll-top-btn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- InvestWise Risk Mentor Chatbot -->
+    <div id="chatbot-toggle" class="chatbot-toggle" aria-label="Open InvestWise Risk Mentor">
+        <i class="fas fa-robot"></i>
+        <span class="chatbot-badge hidden">1</span>
+    </div>
+
+    <div id="chatbot-window" class="chatbot-window hidden">
+        <div class="chatbot-header">
+            <div class="chatbot-header-info">
+                <div class="chatbot-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div>
+                    <h3>InvestWise Risk Mentor</h3>
+                    <span class="chatbot-status"><i class="fas fa-circle"></i> Online</span>
+                </div>
+            </div>
+            <div class="chatbot-header-actions">
+                <button id="chatbot-minimize" class="chatbot-header-btn" aria-label="Minimize chat">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button id="chatbot-close" class="chatbot-header-btn" aria-label="Close chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="chatbot-messages" class="chatbot-messages">
+            <!-- Messages injected via JS -->
+        </div>
+
+        <div class="chatbot-quick-actions" id="chatbot-quick-actions">
+            <button class="chatbot-quick-btn" data-action="risk_profile"><i class="fas fa-user-shield"></i> Analyze My Risk</button>
+            <button class="chatbot-quick-btn" data-action="explain_sip"><i class="fas fa-piggy-bank"></i> Explain SIP</button>
+            <button class="chatbot-quick-btn" data-action="stock_risk"><i class="fas fa-chart-line"></i> Check Stock Risk</button>
+            <button class="chatbot-quick-btn" data-action="investment_basics"><i class="fas fa-book-open"></i> Investment Basics</button>
+            <button class="chatbot-quick-btn" data-action="get_started"><i class="fas fa-rocket"></i> Help Me Get Started</button>
+        </div>
+
+        <div class="chatbot-input-area">
+            <input type="text" id="chatbot-input" placeholder="Ask me about investments, risks, SIPs..." autocomplete="off">
+            <button id="chatbot-send" aria-label="Send message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
